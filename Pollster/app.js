@@ -5,15 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-//var socketio = require('socket.io');
-
 var routes = require('./routes/index');
-//var vote = require('./routes/index').vote;
-
-//var users = require('./routes/users');
 
 var app = express();
-//var io = require('socket.io');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,22 +21,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use(function(req, res, next) {
-//	req.io = sio; next();
-//});
-
 app.use('/', routes );
 app.get('/polls/polls', routes);
 app.get('/polls/:id', routes);
 app.post('/polls', routes);
 app.post('/vote', routes);
 
-
-//app.set('routes', routes);
-
-
-//app.use(app.router);
-//routes.initialize(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -76,5 +60,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-//module.exports.io = io;
 module.exports.routes = routes;

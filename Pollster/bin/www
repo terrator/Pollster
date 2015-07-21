@@ -5,7 +5,6 @@
  */
 
 var app = require('../app');
-//var io = require('../app').io;
 var routes = require('../app').routes;
 
 var debug = require('debug')('Pollster:server');
@@ -32,13 +31,9 @@ var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', routes.vote);
 
-//server.listen(port);
-
 server.listen(app.get('port'), function() {
 	console.log( 'Express server listening on port ' + app.get('port') );
 });
-//io.listen(server);
-
 
 server.on('error', onError);
 server.on('listening', onListening);
@@ -101,5 +96,4 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-//  console.log('Server listening on ' + bind);
 }

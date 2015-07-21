@@ -34,10 +34,6 @@ function PollItemCtrl($scope, $routeParams, socket, Poll) {
 		}
 	};	
 }
-//function PollItemCtrl($scope, $routeParams, Poll) {
-//    $scope.poll = Poll.get({pollId: $routeParams.pollId});
-//    $scope.vote = function() {};
-//}
 
 // Controller for creating a new poll
 function PollNewCtrl($scope, $location, Poll) {
