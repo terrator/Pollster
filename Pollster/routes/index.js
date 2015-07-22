@@ -20,7 +20,7 @@ router.get('/polls/polls', function(req, res) {
 
 
 router.get('/polls/:id', function(req, res) {  
-	console.log('Retrieving poll with id: ' + req.param.id);
+	console.log('Retrieving poll with id: ' + req.params.id);
 	
   var pollId = req.params.id;
   Poll.findById(pollId, '', { lean: true }, function(err, poll) {
